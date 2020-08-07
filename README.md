@@ -41,7 +41,7 @@ plot(MixtureModel([
 
 #### MultivariateMixture (2d MvNormal mixture)
 
-<img sec="https://user-images.githubusercontent.com/12798270/89645852-45e97d00-d8ed-11ea-81ab-ea6df784c115.png">
+<img src="https://user-images.githubusercontent.com/12798270/89645852-45e97d00-d8ed-11ea-81ab-ea6df784c115.png">
 
 
 
