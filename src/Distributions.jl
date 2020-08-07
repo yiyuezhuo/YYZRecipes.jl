@@ -4,6 +4,8 @@ using .Distributions # Requires.jl replace usual syntax with this
 # Define recipe for 2d MvNormal
 
 @recipe function f(dist::MvNormal, alpha=0.0001)
+    @assert length(dist) == 2 "MvNormal Plot supports only 2d distribution"
+
     seriestype --> :contours
     x_mdist = Normal(dist.μ[1], sqrt(dist.Σ[1,1]))
     y_mdist = Normal(dist.μ[2], sqrt(dist.Σ[2,2]))
@@ -35,6 +37,8 @@ function find_limit2(mdist_list, prior_p, alpha)
 end
 
 @recipe function f(mix_dist::MixtureModel{Multivariate, Continuous, <:MvNormal}, alpha=0.0001)
+    @assert length(mix_dist.components[1]) == 2 "MixtureModel Plot supports only 2d component distribution"
+
     seriestype --> :contours
     
     x_mdist_list = [Normal(comp.μ[1], sqrt(comp.Σ[1,1])) for comp in mix_dist.components]
